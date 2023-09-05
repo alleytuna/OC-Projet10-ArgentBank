@@ -65,12 +65,22 @@ const Profile = () => {
                   }
                 />
                 <div className="save-cancel-button">
-                  <button className="edit-save-button" onClick={handleSaveButtonClick}>Save</button>
-                  <button className="edit-save-button" onClick={handleCancelButtonClick}>Cancel</button>
+                  <button
+                    className="edit-save-button"
+                    onClick={handleSaveButtonClick}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="edit-save-button"
+                    onClick={handleCancelButtonClick}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
-              <div>
+              <div className="name-and-button">
                 <h2>
                   {" "}
                   <br />
