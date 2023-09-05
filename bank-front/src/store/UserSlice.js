@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// reducers créés
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (userCredentials) => {
@@ -10,6 +11,7 @@ export const loginUser = createAsyncThunk(
     );
     const token = await response.data.body.token;
     localStorage.setItem("token", token);
+    // mettre le token sur les en-têtes de requête
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     return response;
   }
@@ -62,6 +64,7 @@ export const updateUserProfile = createAsyncThunk(
 
 const userSlice = createSlice({
   name: "user",
+  // structure initiale de l'état
   initialState: {
     loading: false,
     user: null,
@@ -86,7 +89,7 @@ const userSlice = createSlice({
         state.user = null;
         state.token = null;
         console.log(action.error.message);
-        if (action.error.message === "Request failed with status code 401") {
+        if (action.error.message === "Request failed with status code 400") {
           state.error = "Access denied, invalid credentials!";
         } else {
           state.error = action.error.message;

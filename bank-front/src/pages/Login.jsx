@@ -6,11 +6,9 @@ import { loginUser } from "../store/UserSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  // states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // reduct states
   const { loading, error } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();

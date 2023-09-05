@@ -19,7 +19,7 @@ export default function Banner(user) {
           <h1 className="sr-only">Argent Bank</h1>
         </a>
         <div>
-          <a className="main-nav-item" href="./Profile">
+          <a className="main-nav-item" href="./profile">
             <img className="icons" src={userIcon} alt="user icon" />
             {user.user.firstName}
           </a>
